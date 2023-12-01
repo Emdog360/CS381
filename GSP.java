@@ -24,7 +24,19 @@ class GSPGame {
 
         this.maxPos = this.pastBuyers.length;
     }
-
+    //
+    public int gaussInt(int range){
+        double sdmulti = 2; //95%
+        //double sdmulti = 3; //99%
+        double randseed = 10.0;
+        do{
+            randseed = rand.nextGaussian()+sdmulti;
+        }
+        while(randseed  > sdmulti*2 || randseed< 0);
+        int num = (int)(randseed/(sdmulti*2.0)*(double)(range+1));
+        return num;
+    }
+    
     public float runGSPGame(int rounds) {
         float result = 0f;
         int choice = 0;
